@@ -1,5 +1,5 @@
 User-Agent: *
 Allow: /
 
-Host: https://fm-news.znagy.hu
-Sitemap: https://fm-news.znagy.hu/sitemap.xml
+Host: https://fm-expenses-chart.znagy.hu
+Sitemap: https://fm-expenses-chart.znagy.hu/sitemap.xml
