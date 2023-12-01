@@ -1,11 +1,12 @@
 import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: 'DM Sans',
+        sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         'soft-red': 'hsl(10, 79%, 65%)',
