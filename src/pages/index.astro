@@ -1,0 +1,119 @@
+---
+import { z } from 'zod';
+import input from '~/data.json';
+import { Chart } from '~/components/chart';
+
+const schema = z.array(
+  z.object({
+    day: z.string(),
+    amount: z.number(),
+  }),
+);
+
+export type Data = z.infer<typeof schema>;
+
+const data = schema.parse(input);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+
+    <meta name="author" content="Zétény Nagy" />
+    <link rel="author" href="https://znagy.hu" />
+
+    <meta
+      name="keywords"
+      content="frontend mentor, frontend, mentor, fem, expenses chart component, expenses chart, expenses, chart, component homepage, challenge, astro, react, tailwind, tailwindcss"
+    />
+
+    <meta name="theme-color" content="hsl(27, 66%, 92%)" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Frontend Mentor | Expenses chart component" />
+
+    <meta name="application-name" content="Frontend Mentor | Expenses chart component" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="googlebot"
+      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    />
+    <title>Frontend Mentor | Expenses chart component</title>
+    <meta property="og:title" content="Frontend Mentor | Expenses chart component" />
+    <meta name="twitter:title" content="Frontend Mentor | Expenses chart component" />
+
+    <meta
+      name="description"
+      content="This is a solution to the Expenses chart component challenge on Frontend Mentor. Built with Astro and Tailwind CSS"
+    />
+    <meta
+      property="og:description"
+      content="This is a solution to the Expenses chart component challenge on Frontend Mentor. Built with Astro and Tailwind CSS"
+    />
+    <meta
+      name="twitter:description"
+      content="This is a solution to the Expenses chart component challenge on Frontend Mentor. Built with Astro and Tailwind CSS"
+    />
+
+    <meta property="og:url" content="https://fm-expenses-chart.znagy.hu" />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Astro</title>
+  </head>
+
+  <body class="bg-cream">
+    <main class="grid min-h-screen w-screen place-content-center">
+      <div class="flex flex-col gap-4 lg:gap-6 mx-4">
+        <div
+          class="flex items-center justify-between text-white gap-8 bg-soft-red lg:p-8 p-4 py-6 rounded-xl lg:rounded-2xl"
+        >
+          <div class="flex flex-col">
+            <span class="text-very-pale-orange text-sm lg:text-base">My balance</span>
+            <span class="font-bold text-2xl">$921.48</span>
+          </div>
+
+          <img src="/logo.svg" class="h-10 lg:h-full" alt="Logo" width="72" height="48" />
+        </div>
+
+        <div
+          class="flex flex-col gap-4 px-4 py-6 lg:p-8 lg:pb-12 bg-very-pale-orange rounded-xl lg:rounded-2xl"
+        >
+          <h1 class="text-dark-brown font-bold text-2xl">Spending - Last 7 days</h1>
+
+          <div class="flex flex-col gap-6">
+            <Chart data={data} client:load />
+
+            <hr class="border-cream" />
+
+            <div class="flex justify-between gap-8 items-end">
+              <div class="flex flex-col">
+                <span class="text-medium-brown text-sm lg:text-lg">Total this month</span>
+                <span class="text-dark-brown text-3xl lg:text-4xl font-bold">$478.33</span>
+              </div>
+
+              <div class="flex flex-col text-end">
+                <span class="text-dark-brown font-bold text-sm lg:text-lg">+2.4%</span>
+                <span class="text-medium-brown text-sm lg:text-lg">from last month</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
