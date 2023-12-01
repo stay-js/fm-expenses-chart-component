@@ -46,6 +46,7 @@ const data = schema.parse(input);
       name="googlebot"
       content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
     />
+
     <title>Frontend Mentor | Expenses chart component</title>
     <meta property="og:title" content="Frontend Mentor | Expenses chart component" />
     <meta name="twitter:title" content="Frontend Mentor | Expenses chart component" />
@@ -96,7 +97,7 @@ const data = schema.parse(input);
           <h1 class="text-dark-brown font-bold text-2xl">Spending - Last 7 days</h1>
 
           <div class="flex flex-col gap-6">
-            <Chart data={data} client:load />
+            <Chart data={data} client:only="react" />
 
             <hr class="border-cream" />
 
