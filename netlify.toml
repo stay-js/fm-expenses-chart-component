@@ -1,0 +1,5 @@
+[[redirects]]
+    from = "https://znagy-fm-expenses-chart.netlify.app/*"
+    to = "https://fm-expenses-chart.znagy.hu/:splat"
+    status = 301
+    force = true
